@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Computer Repair Services - Professional Solutions</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" rel="stylesheet">
+
+    <!-- Only your original stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Structural CSS for specific layouts (No colors, Dark Theme Safe) -->
+    <style>
+        .reverse-layout { flex-direction: row-reverse; }
+        .list-items { list-style: none; padding: 0; margin-top: 20px; }
+        .list-items li { margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        
+        @media (max-width: 768px) {
+            .reverse-layout { flex-direction: column; }
+        }
+    </style>
+</head>
+
+<body>
+
+     <header>
+
+        <div class="container">
+
+            <nav>
+
+                <a href="index.html" class="logo">
+
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+
+                    <div class="logo-text">
+                        Dev<span>Tek</span>
+                    </div>
+
+                </a>
+
+                <ul>
+
+                    <!-- <li><a href="index.html">Home</a></li> -->
+
+                    <li><a href="about.html">About</a></li>
+
+                    <li><a href="products.html">Our Products</a></li>
+
+
+                    <li class="nav-dropdown">
+                        <a href="services.html">
+                            Services <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="digital-marketing.html">Digital Marketing</a></li>
+                            <li><a href="web-design.html">Web Design</a></li>
+                            <li><a href="mobile-app-development.html">Mobile App Development</a></li>
+                            <li><a href="cloud-hosting-solutions.html">Cloud & Hosting</a></li>
+
+                            <!-- New Pages -->
+                            <li><a href="computer-repair.html">Computer Repair</a></li>
+                            <li><a href="printer-repair.html">Printer Repair</a></li>
+                            <li><a href="laptop-repair.html">Laptop Reapir</a></li>
+                            <li><a href="wifi-router.html">WiFi Router</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="testimonials.html">Testimonials</a></li>
+
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+
+                <div class="nav-btn">
+                    <div class="bbb_logo">
+                        <img src="/assets/bbb_logo.png" alt="">
+                    </div>
+
+                    <a href="#" class="btn">
+                        Get Started
+                    </a>
+
+                </div>
+
+                <div class="hamburger">
+
+                    <span></span>
+
+                    <span></span>
+
+                    <span></span>
+
+                </div>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- SERVICE HERO (Updated with Computer Repair Background & Content) -->
+    <section class="service-detail-hero">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="service-detail-hero-content">
+                <h1>Computer Repair & Upgrades</h1>
+                <p>Expert Diagnostics, Hardware Repair, and Data Recovery for PC & Mac</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICE DETAILS 1: OVERVIEW -->
+    <section class="service-detail">
+        <div class="container">
+            <div class="detail-content">
+                <div class="detail-text">
+                    <h2>Expert PC & Mac Repair</h2>
+                    <p>
+                        Is your computer running slow, crashing unexpectedly, or refusing to turn on altogether? Our certified technicians provide comprehensive diagnostics and repair services for all major brands of laptops and desktop computers.
+                    </p>
+                    <p>
+                        From hardware failures like broken screens, faulty motherboards, and failing hard drives to software issues like the dreaded blue screen of death and malware infections, we have the expertise to get your system back up and running smoothly.
+                    </p>
+                </div>
+                <div class="detail-image">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800&auto=format&fit=crop"
+                        alt="Technician repairing a computer">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICE DETAILS 2 (HTML Swapped for variety) -->
+    <section class="service-detail">
+        <div class="container">
+            <div class="detail-content reverse-layout">
+                <div class="detail-image">
+                    <img src="https://images.unsplash.com/photo-1562976540-1502c2145186?q=80&w=800&auto=format&fit=crop"
+                        alt="Computer hardware components">
+                </div>
+                <div class="detail-text">
+                    <h2>Hardware Upgrades & Data Recovery</h2>
+                    <p>
+                        Don't throw away a sluggish computer just yet! A simple RAM upgrade or switching from an old hard drive to a blazing-fast Solid State Drive (SSD) can make your old PC feel brand new again, saving you hundreds of dollars.
+                    </p>
+                    <p>
+                        If you've experienced a sudden crash, liquid spill, or accidental deletion, our advanced data recovery tools can rescue your precious family photos, critical business documents, and creative projects from failing drives.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICE FEATURES 1: EXPERTISE -->
+    <section class="service-features">
+        <div class="container">
+            <div class="section-title reveal">
+                <span>OUR EXPERTISE</span>
+                <h2>What We Offer in PC Repair</h2>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-virus-slash"></i>
+                    </div>
+                    <h3>Virus & Malware Removal</h3>
+                    <p>Deep system scans to safely remove stubborn viruses, spyware, ransomware, and pop-up adware.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3>Hardware Upgrades</h3>
+                    <p>Boost your speed with professional RAM, SSD, graphics card, and processor upgrades.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-hard-drive"></i>
+                    </div>
+                    <h3>Data Recovery</h3>
+                    <p>Safe extraction and recovery of lost, deleted, or corrupted files from damaged hard drives and SSDs.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-laptop"></i>
+                    </div>
+                    <h3>Screen & Battery Repair</h3>
+                    <p>Fast replacement of cracked laptop screens, broken hinges, dead batteries, and faulty keyboards.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fa-brands fa-windows"></i>
+                    </div>
+                    <h3>OS Troubleshooting</h3>
+                    <p>Fixing boot loops, blue screens, corrupted registries, and performing clean Windows/macOS installs.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h3>Custom PC Builds</h3>
+                    <p>Consultation, parts sourcing, and assembly of high-end custom PCs for gaming or heavy video editing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: WHY CHOOSE US -->
+    <section class="service-features">
+        <div class="container">
+            <div class="section-title reveal">
+                <span>WHY CHOOSE US</span>
+                <h2>The DevTek Advantage</h2>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h3>Certified Technicians</h3>
+                    <p>Trust your devices with highly trained IT professionals who understand intricate modern hardware.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-stopwatch"></i>
+                    </div>
+                    <h3>Fast Turnaround</h3>
+                    <p>We keep parts in stock to offer same-day or next-day repair services to get you back to work quickly.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3>Remote & On-Site</h3>
+                    <p>Software issues can be fixed via secure remote access, or we can dispatch a tech to your location.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                    </div>
+                    <h3>Transparent Pricing</h3>
+                    <p>Receive clear, upfront diagnostic reports and repair quotes before any physical work begins.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS SECTION -->
+    <section class="service-process">
+        <div class="container">
+            <div class="section-title reveal">
+                <span>OUR PROCESS</span>
+                <h2>How We Fix Your Computer</h2>
+            </div>
+
+            <div class="process-steps">
+                <div class="process-step reveal">
+                    <div class="step-number">01</div>
+                    <h3>Diagnosis</h3>
+                    <p>We run comprehensive hardware and software tests to identify the exact root cause of the issue.</p>
+                </div>
+
+                <div class="process-step reveal">
+                    <div class="step-number">02</div>
+                    <h3>Clear Quote</h3>
+                    <p>We provide a detailed explanation of the problem and a transparent cost estimate for parts and labor.</p>
+                </div>
+
+                <div class="process-step reveal">
+                    <div class="step-number">03</div>
+                    <h3>Expert Repair</h3>
+                    <p>Our technicians replace faulty components, clean internal dust, or resolve system software conflicts.</p>
+                </div>
+
+                <div class="process-step reveal">
+                    <div class="step-number">04</div>
+                    <h3>Rigorous Testing</h3>
+                    <p>We stress-test the repaired machine to ensure stability, temperature control, and peak performance.</p>
+                </div>
+
+                <div class="process-step reveal">
+                    <div class="step-number">05</div>
+                    <h3>Handover</h3>
+                    <p>We return your fully functional device along with advice on how to keep it running smoothly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2>Need Urgent Computer Repairs?</h2>
+                <p>Let our tech experts bring your dead or slow PC back to life today.</p>
+                <a href="contact.html" class="primary-btn">Book a Repair</a>
+            </div>
+        </div>
+    </section>
+
+    <!--=========================================
+FOOTER
+==========================================-->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-top">
+
+                <!-- Company -->
+
+                <div class="footer-col">
+
+                    <a href="index.html" class="logo">
+
+                        <div class="logo-icon">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+
+                        <div class="logo-text">
+                            Dev<span>Tek</span>
+                        </div>
+
+                    </a>
+
+                    <p>
+
+                        We help businesses grow through SEO,
+                        Google Ads, Social Media Marketing,
+                        Branding and Website Development.
+
+                    </p>
+
+                    <div class="social-links">
+
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+
+                    </div>
+
+                </div>
+
+                <!-- Quick Links -->
+
+                <div class="footer-col">
+
+                    <h3>Quick Links</h3>
+
+                    <ul>
+
+                        <li><a href="index.html">Home</a></li>
+
+                        <li><a href="about.html">About</a></li>
+
+                        <li><a href="services.html">Services</a></li>
+
+                        <li><a href="index.html#portfolio">Portfolio</a></li>
+
+                        <li><a href="contact.html">Contact</a></li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Services -->
+
+                <div class="footer-col">
+
+                    <h3>Services</h3>
+
+                    <ul>
+
+                        <li><a href="digital-marketing.html">Digital Marketing</a></li>
+
+                        <li><a href="web-design.html">Web Design</a></li>
+
+                        <li><a href="computer-repair.html">Computer Repair</a></li>
+
+                        <li><a href="printer-repair.html">Printer Repair</a></li>
+
+                        <li><a href="wifi-router.html">Wifi Router</a></li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Contact -->
+
+                <div class="footer-col">
+
+                    <h3>Contact</h3>
+
+                    <ul class="contact-info">
+
+                        <li>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            New York, USA
+
+                        </li>
+
+                        <li>
+
+                            <i class="fa-solid fa-phone"></i>
+
+                            +(321) 599-4515
+
+                        </li>
+
+                        <!-- <li>
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            hello@DevTek.com
+
+                        </li> -->
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p>
+
+                    © 2026 DevTek. All Rights Reserved.
+
+                </p>
+
+                <div>
+
+                    <a href="privacy-policy.html">Privacy Policy</a>
+
+                    <a href="terms-conditions.html">Terms & Conditions</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

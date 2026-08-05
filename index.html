@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Digital Marketing Agency</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <style>
+        .google-reviews-widget {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            width: 300px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.16);
+            background: #fff;
+            z-index: 9999;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* HEADER - Always visible */
+        .gw-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 10px;
+            background: #fff;
+            cursor: pointer;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.2s ease;
+        }
+
+        .gw-header:hover {
+            background: #fafafa;
+        }
+
+        .gw-logo {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+        }
+
+        .gw-rating-box {
+            padding-left: 8px;
+            flex: 1;
+
+        }
+
+        .gw-rating-box strong {
+            font-size: 22px;
+            font-weight: 700;
+            color: #202124;
+            letter-spacing: -0.3px;
+        }
+
+        .gw-stars {
+            font-size: 25px;
+            color: #ffc400;
+            letter-spacing: 1px;
+        }
+
+        .gw-count {
+            display: block;
+            font-size: 12px;
+            color: #545555;
+            font-weight: 600;
+        }
+
+        .gw-toggle {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #80868b;
+            font-size: 14px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .google-reviews-widget.expanded .gw-toggle {
+            transform: rotate(180deg);
+        }
+
+        /* BODY - Reviews list (collapsible) */
+        .gw-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #fff;
+        }
+
+        .gw-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .35s ease;
+        }
+
+        .google-reviews-widget.expanded .gw-body {
+            max-height: 420px;
+            overflow-y: auto;
+        }
+
+        .gw-reviews-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .gw-reviews-list::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .gw-reviews-list::-webkit-scrollbar-thumb {
+            background: #d3d3d3;
+            border-radius: 3px;
+        }
+
+        .gw-reviews-list::-webkit-scrollbar-thumb:hover {
+            background: #999;
+        }
+
+        /* Individual review item */
+        .gw-review {
+            display: flex;
+            gap: 12px;
+            padding: 14px 16px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.2s ease;
+        }
+
+        .gw-review:last-child {
+            border-bottom: none;
+        }
+
+        .gw-review:hover {
+            background: #fafafa;
+        }
+
+        .gw-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .gw-avatar.avatar-1 {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .gw-avatar.avatar-2 {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .gw-avatar.avatar-3 {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .gw-avatar.avatar-4 {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .gw-review-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .gw-reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .gw-reviewer-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #202124;
+        }
+
+        .gw-google-icon {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        .gw-date {
+            font-size: 12px;
+            color: #80868b;
+            margin-left: auto;
+        }
+
+        .gw-review-stars {
+            font-size: 13px;
+            color: #ffc400;
+            margin-bottom: 6px;
+            letter-spacing: -1px;
+        }
+
+        .gw-review-text {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #5f6368;
+            word-break: break-word;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .google-reviews-widget {
+                left: 10px;
+                right: 10px;
+                width: auto;
+            }
+
+            .google-reviews-widget.expanded .gw-body {
+                max-height: 350px;
+            }
+        }
+    </style>
+
+
+    <header>
+
+        <div class="container">
+
+            <nav>
+
+                <a href="index.html" class="logo">
+
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+
+                    <div class="logo-text">
+                        Dev<span>Tek</span>
+                    </div>
+
+                </a>
+
+                <ul>
+
+                    <!-- <li><a href="index.html">Home</a></li> -->
+
+                    <li><a href="about.html">About</a></li>
+
+                    <li><a href="products.html">Our Products</a></li>
+
+
+                    <li class="nav-dropdown">
+                        <a href="services.html">
+                            Services <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="digital-marketing.html">Digital Marketing</a></li>
+                            <li><a href="web-design.html">Web Design</a></li>
+                            <li><a href="mobile-app-development.html">Mobile App Development</a></li>
+                            <li><a href="cloud-hosting-solutions.html">Cloud & Hosting</a></li>
+
+                            <!-- New Pages -->
+                            <li><a href="computer-repair.html">Computer Repair</a></li>
+                            <li><a href="printer-repair.html">Printer Repair</a></li>
+                            <li><a href="laptop-repair.html">Laptop Reapir</a></li>
+                            <li><a href="wifi-router.html">WiFi Router</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="testimonials.html">Testimonials</a></li>
+
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+
+                <div class="nav-btn">
+                    <div class="bbb_logo">
+                        <img src="/assets/bbb_logo.png" alt="">
+                    </div>
+
+                    <a href="#" class="btn">
+                        Get Started
+                    </a>
+
+                </div>
+
+                <div class="hamburger">
+
+                    <span></span>
+
+                    <span></span>
+
+                    <span></span>
+
+                </div>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <section class="hero">
+
+        <div class="overlay"></div>
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="left">
+
+                    <div class="tag">
+
+                        <i class="fa-solid fa-circle"></i>
+
+                        DIGITAL SOLUTIONS PROVIDER
+
+                    </div>
+
+                    <h1>
+
+                        Your One-Stop Destination
+
+                        For
+
+                        <span>Digital Transformation</span>
+
+                    </h1>
+
+                    <p>
+
+                        We deliver full-cycle app development, website designing, and comprehensive digital marketing
+                        solutions
+                        to businesses globally. Transform your vision into reality with cutting-edge technology and
+                        innovation.
+
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="contact.html" class="primary-btn">
+
+                            Get Free Audit
+
+                        </a>
+
+                        <a href="services.html" class="secondary-btn">
+
+                            Our Services
+
+                        </a>
+
+                    </div>
+
+                    <div class="hero-stats">
+
+                        <div>
+
+                            <h2>250+</h2>
+
+                            <p>Happy Clients</p>
+
+                        </div>
+
+                        <div>
+
+                            <h2>3.8X</h2>
+
+                            <p>Average ROAS</p>
+
+                        </div>
+
+                        <div>
+
+                            <h2>98%</h2>
+
+                            <p>Client Retention</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="right">
+
+                    <!-- <img src="assets/" alt="Marketing Team"> -->
+
+                    <div class="card revenue">
+
+                        <h4>Revenue Growth</h4>
+
+                        <h2>+45%</h2>
+
+                        <p>Last Month</p>
+
+                    </div>
+
+                    <div class="card traffic">
+
+                        <h4>Traffic</h4>
+
+                        <h2>18.4K</h2>
+
+                        <p>Visitors</p>
+
+                    </div>
+
+                    <div class="card sales">
+
+                        <h4>Sales</h4>
+
+                        <h2>$78K</h2>
+
+                        <p>This Month</p>
+
+                    </div>
+
+                    <div class="card conversion">
+
+                        <h4>Conversion</h4>
+
+                        <h2>8.2%</h2>
+
+                        <p>Performance</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+            SERVICES SECTION
+========================================== -->
+
+    <section class="services" id="services">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <span>WHAT WE DO</span>
+
+                <h2>
+                    Complete Digital Marketing
+                    <br>
+                    Services For Business Growth
+                </h2>
+
+                <p>
+                    From SEO and paid advertising to branding and web design,
+                    we help businesses attract more customers, generate more leads,
+                    and increase revenue.
+                </p>
+
+            </div>
+
+            <div class="services-grid">
+
+                <!-- Card -->
+
+                <div class="service-card reveal">
+
+                    <div class="service-top">
+
+                        <div class="service-icon">
+
+                            <i class="fa-solid fa-magnifying-glass-chart"></i>
+
+                        </div>
+
+                        <span class="service-number">
+                            01
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Digital Marketing
+                    </h3>
+
+                    <p>
+
+                        Our experienced digital marketing team delivers powerful campaigns that drive traffic,
+                        generate qualified leads, and increase conversions. We specialize in strategic digital
+                        advertising,
+                        content creation, and customer acquisition.
+
+                    </p>
+
+                    <a href="digital-marketing.html">
+
+                        Learn More
+
+                        <i class="fa-solid fa-arrow-right-long"></i>
+
+                    </a>
+
+                </div>
+
+                <!-- Card -->
+
+                <div class="service-card reveal">
+
+                    <div class="service-top">
+
+                        <div class="service-icon">
+
+                            <i class="fa-brands fa-google"></i>
+
+                        </div>
+
+                        <span class="service-number">
+                            02
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Web Design & Development
+                    </h3>
+
+                    <p>
+
+                        We create impactful, functional websites that drive conversions. Our experienced designers and
+                        developers
+                        transform your creative vision into results-driven solutions that help your business achieve its
+                        goals.
+
+                    </p>
+
+                    <a href="web-design.html">
+
+                        Learn More
+
+                        <i class="fa-solid fa-arrow-right-long"></i>
+
+                    </a>
+
+                </div>
+
+                <!-- Card -->
+
+                <div class="service-card reveal">
+
+                    <div class="service-top">
+
+                        <div class="service-icon">
+
+                            <i class="fa-solid fa-mobile"></i>
+
+                        </div>
+
+                        <span class="service-number">
+                            03
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Mobile App Development
+                    </h3>
+
+                    <p>
+
+                        We create innovative, feature-rich custom mobile applications for iOS and Android.
+                        Our developers build apps that attract customers and help your business achieve its objectives.
+
+                    </p>
+
+                    <a href="mobile-app-development.html">
+
+                        Learn More
+
+                        <i class="fa-solid fa-arrow-right-long"></i>
+
+                    </a>
+
+                </div>
+
+                <!-- Card -->
+
+                <div class="service-card reveal">
+
+                    <div class="service-top">
+
+                        <div class="service-icon">
+
+                            <i class="fa-solid fa-cloud"></i>
+
+                        </div>
+
+                        <span class="service-number">
+                            04
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Cloud & Hosting Solutions
+                    </h3>
+
+                    <p>
+
+                        Cloud hosting enables you to deploy applications and websites with ease. Our infrastructure
+                        provides flexibility and scalability to make changes quickly and efficiently.
+
+                    </p>
+
+                    <a href="cloud-hosting-solutions.html">
+
+                        Learn More
+
+                        <i class="fa-solid fa-arrow-right-long"></i>
+
+                    </a>
+
+                </div>
+
+                <!-- Card -->
+
+                <div class="service-card reveal">
+
+                    <div class="service-top">
+
+                        <div class="service-icon">
+
+                            <i class="fa-solid fa-pen-ruler"></i>
+
+                        </div>
+
+                        <span class="service-number">
+                            05
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Branding & Identity
+                    </h3>
+
+                    <p>
+
+                        Build a memorable brand with modern
+                        design, logo, strategy and visual identity.
+
+                    </p>
+
+                    <a href="services.html">
+
+                        Learn More
+
+                        <i class="fa-solid fa-arrow-right-long"></i>
+
+                    </a>
+
+                </div>
+
+                <!-- Card -->
+
+                <div class="service-card reveal">
+
+                    <div class="service-top">
+
+                        <div class="service-icon">
+
+                            <i class="fa-solid fa-chart-line"></i>
+
+                        </div>
+
+                        <span class="service-number">
+                            06
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Analytics & Reporting
+                    </h3>
+
+                    <p>
+
+                        Measure every campaign using
+                        Google Analytics, GA4, dashboards
+                        and conversion tracking.
+
+                    </p>
+
+                    <a href="digital-marketing.html">
+
+                        Learn More
+
+                        <i class="fa-solid fa-arrow-right-long"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================
+ABOUT SECTION
+========================================== -->
+
+    <section class="about" id="about">
+
+        <div class="container">
+
+            <div class="about-wrapper">
+
+                <!-- Left -->
+
+                <div class="about-image reveal">
+
+                    <img src="https://davservllc.online/images/about-us-left.png" alt="Marketing Team">
+
+                    <div class="experience-card">
+
+                        <h2>10+</h2>
+
+                        <p>Years Of Experience</p>
+
+                    </div>
+
+                    <div class="clients-card">
+
+                        <h3>250+</h3>
+
+                        <span>Happy Clients</span>
+
+                    </div>
+
+                </div>
+
+                <!-- Right -->
+
+                <div class="about-content reveal">
+
+                    <span class="subtitle">
+                        ABOUT OUR AGENCY
+                    </span>
+
+                    <h2>
+
+                        Your One-Stop Destination
+                        For Full-Cycle Digital
+                        Solutions
+
+                    </h2>
+
+                    <p>
+
+                        We are a leading technology and innovation company delivering cutting-edge digital solutions
+                        globally.
+                        From app development and website design to comprehensive digital marketing strategies, we help
+                        businesses
+                        grow and overcome market challenges with innovative approaches and professional excellence.
+
+                    </p>
+
+                    <div class="about-list">
+
+                        <div>
+
+                            <i class="fa-solid fa-circle-check"></i>
+
+                            <span>Google Certified Marketing Experts</span>
+
+                        </div>
+
+                        <div>
+
+                            <i class="fa-solid fa-circle-check"></i>
+
+                            <span>ROI Focused Campaign Strategy</span>
+
+                        </div>
+
+                        <div>
+
+                            <i class="fa-solid fa-circle-check"></i>
+
+                            <span>Transparent Monthly Reporting</span>
+
+                        </div>
+
+                        <div>
+
+                            <i class="fa-solid fa-circle-check"></i>
+
+                            <span>Dedicated Project Manager</span>
+
+                        </div>
+
+                    </div>
+
+                    <a href="digital-marketing.html" class="about-btn">
+
+                        Learn More
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--=======================================
+CASE STUDIES
+========================================-->
+
+    <section class="portfolio" id="portfolio">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <span>CASE STUDIES</span>
+
+                <h2>
+                    Success Stories That
+                    <br>
+                    Speak For Themselves
+                </h2>
+
+                <p>
+                    We’ve helped brands generate more leads, improve search rankings,
+                    increase conversions and scale revenue with data-driven marketing.
+                </p>
+
+            </div>
+
+            <div class="portfolio-grid">
+
+                <!-- Project -->
+
+                <div class="portfolio-card reveal">
+
+                    <img src="assets/project1.jpeg" alt="SEO Project">
+
+                    <div class="portfolio-overlay">
+
+                        <span>SEO Marketing</span>
+
+                        <h3>
+                            350% Organic Traffic Growth
+                        </h3>
+
+                        <a href="digital-marketing.html">
+
+                            View Case Study
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- Project -->
+
+                <div class="portfolio-card reveal">
+
+                    <img src="assets/project2.jpeg" alt="PPC">
+
+                    <div class="portfolio-overlay">
+
+                        <span>Google Ads</span>
+
+                        <h3>
+
+                            5X Return On Ad Spend
+
+                        </h3>
+
+                        <a href="digital-marketing.html">
+
+                            View Case Study
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- Project -->
+
+                <div class="portfolio-card reveal">
+
+                    <img src="assets/project3.jpeg" alt="Social">
+
+                    <div class="portfolio-overlay">
+
+                        <span>Social Media</span>
+
+                        <h3>
+
+                            120K Monthly Engagement
+
+                        </h3>
+
+                        <a href="services.html">
+
+                            View Case Study
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- Project -->
+
+                <div class="portfolio-card reveal">
+
+                    <img src="assets/project4.jpeg" alt="Website">
+
+                    <div class="portfolio-overlay">
+
+                        <span>Website Design</span>
+
+                        <h3>
+
+                            3X Conversion Increase
+
+                        </h3>
+
+                        <a href="web-design.html">
+
+                            View Case Study
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--=========================================
+WHY CHOOSE US
+==========================================-->
+
+    <section class="why-us">
+
+        <div class="container">
+
+            <div class="why-wrapper">
+
+                <!-- Left -->
+
+                <div class="why-image reveal">
+
+                    <img src="assets/why-us.jpeg" alt="Agency">
+
+                    <div class="why-floating-card">
+
+                        <h2>98%</h2>
+
+                        <p>Client Satisfaction</p>
+
+                    </div>
+
+                </div>
+
+                <!-- Right -->
+
+                <div class="why-content reveal">
+
+                    <span>
+                        WHY CHOOSE US
+                    </span>
+
+                    <h2>
+
+                        We Don't Just Run Ads.
+
+                        <br>
+
+                        We Build Growth Systems.
+
+                    </h2>
+
+                    <p>
+
+                        Every campaign is backed by strategy,
+                        creativity and data.
+                        Our team continuously tests, optimizes,
+                        and scales campaigns that generate measurable ROI.
+
+                    </p>
+
+                    <div class="why-grid">
+
+                        <div class="why-box">
+
+                            <i class="fa-solid fa-chart-line"></i>
+
+                            <div>
+
+                                <h3>
+
+                                    ROI Focused
+
+                                </h3>
+
+                                <p>
+
+                                    Every campaign is optimized
+                                    for revenue growth.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="why-box">
+
+                            <i class="fa-solid fa-users"></i>
+
+                            <div>
+
+                                <h3>
+
+                                    Dedicated Team
+
+                                </h3>
+
+                                <p>
+
+                                    Experienced marketers working
+                                    exclusively on your business.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="why-box">
+
+                            <i class="fa-solid fa-clock"></i>
+
+                            <div>
+
+                                <h3>
+
+                                    Fast Delivery
+
+                                </h3>
+
+                                <p>
+
+                                    Campaigns launched within
+                                    days, not weeks.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="why-box">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                            <div>
+
+                                <h3>
+
+                                    Transparent Reporting
+
+                                </h3>
+
+                                <p>
+
+                                    Live dashboards and monthly
+                                    performance reports.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--=========================================
+      STATISTICS SECTION
+==========================================-->
+
+    <section class="stats">
+
+        <div class="container">
+
+            <div class="stats-wrapper">
+
+                <div class="stat-card reveal">
+
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <h2 class="counter" data-target="250">0</h2>
+
+                    <p>Happy Clients</p>
+
+                </div>
+
+                <div class="stat-card reveal">
+
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+
+                    <h2 class="counter" data-target="500">0</h2>
+
+                    <p>Projects Delivered</p>
+
+                </div>
+
+                <div class="stat-card reveal">
+
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+
+                    <h2 class="counter" data-target="98">0</h2>
+
+                    <p>Client Retention %</p>
+
+                </div>
+
+                <div class="stat-card reveal">
+
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+
+                    <h2 class="counter" data-target="10">0</h2>
+
+                    <p>Years Experience</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--=========================================
+TESTIMONIALS
+==========================================-->
+
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <span>CLIENT TESTIMONIALS</span>
+
+                <h2>What Our Clients Say About Us</h2>
+
+                <p>
+                    Trusted by startups, local businesses and enterprises
+                    to deliver measurable growth through digital marketing.
+                </p>
+
+            </div>
+
+            <div class="swiper testimonialSlider">
+
+                <div class="swiper-wrapper">
+
+                    <!-- Client 1 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+
+                            <p>
+                                Their SEO strategy completely transformed our business.
+                            </p>
+
+                            <div class="client">
+                                <img src="https://davservllc.online/images/client-img.png">
+
+                                <div>
+                                    <h4>Michael Johnson</h4>
+                                    <span>CEO, TechNova</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Client 2 -->
+
+                    <div class="swiper-slide">
+
+                        <div class="testimonial-card">
+
+                            <div class="stars">
+
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+
+                            </div>
+
+                            <p>
+                                Amazing Google Ads results. Highly recommended.
+                            </p>
+
+                            <div class="client">
+
+                                <img src="https://davservllc.online/images/team-img-2.jpg">
+
+                                <div>
+
+                                    <h4>Emma Williams</h4>
+
+                                    <span>Marketing Director</span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Client 3 -->
+
+                    <div class="swiper-slide">
+
+                        <div class="testimonial-card">
+
+                            <div class="stars">
+
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+
+                            </div>
+
+                            <p>
+                                Beautiful website design and branding.
+                            </p>
+
+                            <div class="client">
+
+                                <img src="https://davservllc.online/images/team-img-3.jpg">
+
+                                <div>
+
+                                    <h4>Daniel Brown</h4>
+
+                                    <span>Founder</span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Client 4 -->
+
+                    <div class="swiper-slide">
+
+                        <div class="testimonial-card">
+
+                            <div class="stars">
+
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+
+                            </div>
+
+                            <p>
+                                Excellent support and measurable business growth.
+                            </p>
+
+                            <div class="client">
+
+                                <img src="https://davservllc.online/images/team-img-4.jpg">
+
+                                <div>
+
+                                    <h4>Sophia Miller</h4>
+
+                                    <span>Business Owner</span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="swiper-pagination"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Goole Reviewss.. -->
+    <div class="google-reviews-widget" id="reviewsWidget">
+
+        <!-- Header (Always Visible) -->
+        <div class="gw-header" onclick="toggleWidget()">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google"
+                class="gw-logo">
+            <div class="gw-rating-box">
+                <strong>4.4</strong>
+                <span class="gw-stars">★★★★☆</span>
+                <span class="gw-count">74 REVIEWS</span>
+            </div>
+
+            <div class="gw-toggle">
+                <i class="fas fa-chevron-up"></i>
+            </div>
+        </div>
+
+        <!-- Body (Expandable) -->
+        <div class="gw-body">
+            <div class="gw-reviews-list">
+
+                <!-- Review 1 -->
+                <div class="gw-review">
+                    <div class="gw-avatar avatar-1">FP</div>
+                    <div class="gw-review-content">
+                        <div class="gw-reviewer-info">
+                            <span class="gw-reviewer-name">Freida Pryor</span>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+                                alt="Google" class="gw-google-icon">
+                            <span class="gw-date">2026-07-29</span>
+                        </div>
+                        <div class="gw-review-stars">★★★★★</div>
+                        <p class="gw-review-text">Service very friendly. Competent. Informative. I will recommend to all
+                            my friends.</p>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="gw-review">
+                    <div class="gw-avatar avatar-2">RR</div>
+                    <div class="gw-review-content">
+                        <div class="gw-reviewer-info">
+                            <span class="gw-reviewer-name">Rocky R</span>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+                                alt="Google" class="gw-google-icon">
+                            <span class="gw-date">2026-07-18</span>
+                        </div>
+                        <div class="gw-review-stars">★★★★★</div>
+                        <p class="gw-review-text">Easy to contact tech support and the technician did all the work.</p>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="gw-review">
+                    <div class="gw-avatar avatar-3">MP</div>
+                    <div class="gw-review-content">
+                        <div class="gw-reviewer-info">
+                            <span class="gw-reviewer-name">Maria Park</span>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+                                alt="Google" class="gw-google-icon">
+                            <span class="gw-date">2026-07-10</span>
+                        </div>
+                        <div class="gw-review-stars">★★★★★</div>
+                        <p class="gw-review-text">Professional and reliable service. Highly recommend US Repairs for any
+                            tech issues.</p>
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="gw-review">
+                    <div class="gw-avatar avatar-4">JK</div>
+                    <div class="gw-review-content">
+                        <div class="gw-reviewer-info">
+                            <span class="gw-reviewer-name">James Kim</span>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+                                alt="Google" class="gw-google-icon">
+                            <span class="gw-date">2026-07-05</span>
+                        </div>
+                        <div class="gw-review-stars">★★★★☆</div>
+                        <p class="gw-review-text">Great customer service and quick response time. Very satisfied with
+                            the repair work.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleWidget() {
+            const widget = document.getElementById('reviewsWidget');
+            widget.classList.toggle('expanded');
+        }
+
+        // Optional: Close when clicking outside
+        document.addEventListener('click', function (event) {
+            const widget = document.getElementById('reviewsWidget');
+            if (!widget.contains(event.target) && widget.classList.contains('expanded')) {
+                widget.classList.remove('expanded');
+            }
+        });
+    </script>
+
+
+
+    <!--=========================================
+FOOTER
+==========================================-->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-top">
+
+                <!-- Company -->
+
+                <div class="footer-col">
+
+                    <a href="index.html" class="logo">
+
+                        <div class="logo-icon">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+
+                        <div class="logo-text">
+                            Dev<span>Tek</span>
+                        </div>
+
+                    </a>
+
+                    <p>
+
+                        We help businesses grow through SEO,
+                        Google Ads, Social Media Marketing,
+                        Branding and Website Development.
+
+                    </p>
+
+                    <div class="social-links">
+
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+
+                    </div>
+
+                </div>
+
+                <!-- Quick Links -->
+
+                <div class="footer-col">
+
+                    <h3>Quick Links</h3>
+
+                    <ul>
+
+                        <li><a href="index.html">Home</a></li>
+
+                        <li><a href="about.html">About</a></li>
+
+                        <li><a href="services.html">Services</a></li>
+
+                        <li><a href="index.html#portfolio">Portfolio</a></li>
+
+                        <li><a href="contact.html">Contact</a></li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Services -->
+
+                <div class="footer-col">
+
+                    <h3>Services</h3>
+
+                    <ul>
+
+                        <li><a href="digital-marketing.html">Digital Marketing</a></li>
+
+                        <li><a href="web-design.html">Web Design</a></li>
+
+                        <li><a href="computer-repair.html">Computer Repair</a></li>
+
+                        <li><a href="printer-repair.html">Printer Repair</a></li>
+
+                        <li><a href="wifi-router.html">Wifi Router</a></li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Contact -->
+
+                <div class="footer-col">
+
+                    <h3>Contact</h3>
+
+                    <ul class="contact-info">
+
+                        <li>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            New York, USA
+
+                        </li>
+
+                        <li>
+
+                            <i class="fa-solid fa-phone"></i>
+
+                            +(321) 599-4515
+
+                        </li>
+
+                        <!-- <li>
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            hello@DevTek.com
+
+                        </li> -->
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p>
+
+                    © 2026 DevTek. All Rights Reserved.
+
+                </p>
+
+                <div>
+
+                    <a href="privacy-policy.html">Privacy Policy</a>
+
+                    <a href="terms-conditions.html">Terms & Conditions</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
