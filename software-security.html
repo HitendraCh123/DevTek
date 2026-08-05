@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Security - DevTech Products</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- UNIQUE LAYOUT CSS FOR INDIVIDUAL PRODUCT CATEGORIES -->
+    <style>
+        .cat-section {
+            padding: 80px 0;
+        }
+
+        .cat-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        .cat-header h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .cat-header p {
+            font-size: 16px;
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        /* Individual Product Grid & Cards */
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .cat-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cat-card:hover {
+            transform: translateY(-8px);
+            border-color: #00bfff;
+            box-shadow: 0 10px 25px rgba(0, 191, 255, 0.1);
+        }
+
+        .cat-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .cat-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s;
+            opacity: 0.9;
+        }
+
+        .cat-card:hover .cat-img img {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .cat-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(0, 191, 255, 0.9);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            z-index: 2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cat-info {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cat-title {
+            font-size: 20px;
+            margin: 0 0 5px 0;
+            color: #fff;
+            line-height: 1.3;
+        }
+
+        .cat-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #00bfff;
+            margin-bottom: 20px;
+        }
+
+        .cat-price small {
+            font-size: 14px;
+            font-weight: 400;
+            opacity: 0.6;
+            color: #fff;
+        }
+
+        .cat-specs {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 25px 0;
+            flex-grow: 1;
+        }
+
+        .cat-specs li {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cat-specs li i {
+            color: #00bfff;
+            font-size: 12px;
+            width: 16px;
+            text-align: center;
+        }
+
+        .cat-btn {
+            text-align: center;
+            padding: 12px;
+            background: rgba(0, 191, 255, 0.05);
+            border: 1px solid #00bfff;
+            color: #00bfff;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+
+        .cat-card:hover .cat-btn {
+            background: #00bfff;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+   <header>
+
+        <div class="container">
+
+            <nav>
+
+                <a href="index.html" class="logo">
+
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+
+                    <div class="logo-text">
+                        Dev<span>Tek</span>
+                    </div>
+
+                </a>
+
+                <ul>
+
+                    <!-- <li><a href="index.html">Home</a></li> -->
+
+                    <li><a href="about.html">About</a></li>
+
+                    <li><a href="products.html">Our Products</a></li>
+
+
+                    <li class="nav-dropdown">
+                        <a href="services.html">
+                            Services <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="digital-marketing.html">Digital Marketing</a></li>
+                            <li><a href="web-design.html">Web Design</a></li>
+                            <li><a href="mobile-app-development.html">Mobile App Development</a></li>
+                            <li><a href="cloud-hosting-solutions.html">Cloud & Hosting</a></li>
+
+                            <!-- New Pages -->
+                            <li><a href="computer-repair.html">Computer Repair</a></li>
+                            <li><a href="printer-repair.html">Printer Repair</a></li>
+                            <li><a href="laptop-repair.html">Laptop Reapir</a></li>
+                            <li><a href="wifi-router.html">WiFi Router</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="testimonials.html">Testimonials</a></li>
+
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+
+                <div class="nav-btn">
+                    <div class="bbb_logo">
+                        <img src="/assets/bbb_logo.png" alt="">
+                    </div>
+
+                    <a href="#" class="btn">
+                        Get Started
+                    </a>
+
+                </div>
+
+                <div class="hamburger">
+
+                    <span></span>
+
+                    <span></span>
+
+                    <span></span>
+
+                </div>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="service-detail-hero"
+        style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1600&auto=format&fit=crop'); background-size: cover; background-position: center; position: relative;">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="service-detail-hero-content">
+                <h1>Software Security</h1>
+                <p>Enterprise-Grade Antivirus, VPN, and Data Protection Solutions</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT LISTING SECTION -->
+    <section class="cat-section">
+        <div class="container">
+            <div class="cat-header reveal">
+                <span
+                    style="color: #00bfff; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; display: block;">Our
+                    Catalog</span>
+                <h2>Bulletproof Your Digital Life</h2>
+                <p>Protect your network, devices, and personal data from evolving cyber threats. Browse our premium,
+                    licensed software solutions for total peace of mind at home or in the office.</p>
+            </div>
+
+            <div class="cat-grid">
+
+                <!-- Item 1: Antivirus -->
+                <div class="cat-card reveal">
+                    <div class="cat-img">
+                        <div class="cat-badge">Endpoint Security</div>
+                        <!-- Using conceptual cybersecurity images -->
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwq4-ZT47iPgcoLCB9rsOBZdBY5egmQiGsWR5kiqEmxQ&s=10"
+                            alt="Bitdefender Security">
+                    </div>
+                    <div class="cat-info">
+                        <h3 class="cat-title">Bitdefender Total Security</h3>
+                        <div class="cat-price">$49.99 <small>/ year</small></div>
+                        <ul class="cat-specs">
+                            <li><i class="fa-solid fa-shield-virus"></i> Real-Time Threat Protection</li>
+                            <li><i class="fa-solid fa-desktop"></i> Covers up to 5 Devices</li>
+                            <li><i class="fa-solid fa-eye-slash"></i> Advanced Anti-Ransomware</li>
+                            <li><i class="fa-solid fa-bolt"></i> Optimized for Performance</li>
+                        </ul>
+                        <a href="contact.html" class="cat-btn">Get License</a>
+                    </div>
+                </div>
+
+                <!-- Item 2: VPN -->
+                <div class="cat-card reveal">
+                    <div class="cat-img">
+                        <div class="cat-badge">Privacy & Anonymity</div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrmIkh70tjlL87fP5EHTlCZaF-JHFYFOIVZNjilRYTvw&s=10"
+                            alt="VPN Protection">
+                    </div>
+                    <div class="cat-info">
+                        <h3 class="cat-title">ExpressVPN Premium</h3>
+                        <div class="cat-price">$99.95 <small>/ year</small></div>
+                        <ul class="cat-specs">
+                            <li><i class="fa-solid fa-lock"></i> 256-bit AES Encryption</li>
+                            <li><i class="fa-solid fa-globe"></i> Servers in 94+ Countries</li>
+                            <li><i class="fa-solid fa-user-secret"></i> Strict No-Log Policy</li>
+                            <li><i class="fa-solid fa-ban"></i> Built-in Threat Manager</li>
+                        </ul>
+                        <a href="contact.html" class="cat-btn">Get License</a>
+                    </div>
+                </div>
+
+                <!-- Item 3: Password Manager -->
+                <div class="cat-card reveal">
+                    <div class="cat-img">
+                        <div class="cat-badge">Access Management</div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1pTvoWrTO-RD74jAnrIvvCfmbyVNKdeNvvvYwzHwVrw&s=10"
+                            alt="Password Security">
+                    </div>
+                    <div class="cat-info">
+                        <h3 class="cat-title">1Password Business</h3>
+                        <div class="cat-price">$95.88 <small>/ year</small></div>
+                        <ul class="cat-specs">
+                            <li><i class="fa-solid fa-key"></i> Secure Password Vaults</li>
+                            <li><i class="fa-solid fa-users"></i> Team & Guest Sharing</li>
+                            <li><i class="fa-solid fa-mobile-screen"></i> Seamless Multi-Device Sync</li>
+                            <li><i class="fa-solid fa-triangle-exclamation"></i> Security Breach Alerts</li>
+                        </ul>
+                        <a href="contact.html" class="cat-btn">Get License</a>
+                    </div>
+                </div>
+
+                <!-- Item 4: Cloud Backup -->
+                <div class="cat-card reveal">
+                    <div class="cat-img">
+                        <div class="cat-badge">Data Protection</div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSDWYQulB_xzB8bX8JI7eM-1T-4ZvVTgSv2N7xzRVdzQ&s=10"
+                            alt="Cloud Backup Server">
+                    </div>
+                    <div class="cat-info">
+                        <h3 class="cat-title">Acronis Cyber Protect</h3>
+                        <div class="cat-price">$89.99 <small>/ year</small></div>
+                        <ul class="cat-specs">
+                            <li><i class="fa-solid fa-cloud-arrow-up"></i> Full System Image Backup</li>
+                            <li><i class="fa-solid fa-hard-drive"></i> 1TB Encrypted Cloud Storage</li>
+                            <li><i class="fa-solid fa-shield-halved"></i> Active Ransomware Defense</li>
+                            <li><i class="fa-solid fa-rotate-left"></i> One-Click Data Recovery</li>
+                        </ul>
+                        <a href="contact.html" class="cat-btn">Get License</a>
+                    </div>
+                </div>
+                <!-- Item 5: Norton 360 Deluxe -->
+                <div class="cat-card reveal">
+                    <div class="cat-img">
+                        <div class="cat-badge">Complete Protection</div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjaxQmhIuwRcLwLSU0frc7_JOAAwZFAkVVCtlgvIVuog&s=10"
+                            alt="Norton 360 Deluxe">
+                    </div>
+                    <div class="cat-info">
+                        <h3 class="cat-title">Norton 360 Deluxe</h3>
+                        <div class="cat-price">$49.99 <small>/ year</small></div>
+                        <ul class="cat-specs">
+                            <li><i class="fa-solid fa-shield-virus"></i> Antivirus & Malware Protection</li>
+                            <li><i class="fa-solid fa-desktop"></i> Covers up to 5 Devices</li>
+                            <li><i class="fa-solid fa-vault"></i> Secure VPN Included</li>
+                            <li><i class="fa-solid fa-cloud"></i> 50GB Cloud Backup</li>
+                        </ul>
+                        <a href="contact.html" class="cat-btn">Get License</a>
+                    </div>
+                </div>
+
+                <!-- Item 6: Malwarebytes Premium -->
+                <div class="cat-card reveal">
+                    <div class="cat-img">
+                        <div class="cat-badge">Malware Protection</div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScBagpCkv2fpTAdHSVluHyhvyQPY8cggSqsdlMW8RG3g&s=10"
+                            alt="Malwarebytes Premium">
+                    </div>
+                    <div class="cat-info">
+                        <h3 class="cat-title">Malwarebytes Premium</h3>
+                        <div class="cat-price">$59.99 <small>/ year</small></div>
+                        <ul class="cat-specs">
+                            <li><i class="fa-solid fa-bug-slash"></i> Real-Time Malware Defense</li>
+                            <li><i class="fa-solid fa-shield-halved"></i> Ransomware Protection</li>
+                            <li><i class="fa-solid fa-globe"></i> Web Threat Blocking</li>
+                            <li><i class="fa-solid fa-gauge-high"></i> Lightweight Performance</li>
+                        </ul>
+                        <a href="contact.html" class="cat-btn">Get License</a>
+                    </div>
+                </div>
+
+                <!-- Item 7: NordVPN -->
+                <div class="cat-card reveal">
+                    <div class="cat-img">
+                        <div class="cat-badge">Secure VPN</div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe3XzQ1ADlhbYU9Dc5fHZiapSpMzsYHZo7g4__rsgbQQ&s=10"
+                            alt="NordVPN">
+                    </div>
+                    <div class="cat-info">
+                        <h3 class="cat-title">NordVPN Complete</h3>
+                        <div class="cat-price">$79.00 <small>/ year</small></div>
+                        <ul class="cat-specs">
+                            <li><i class="fa-solid fa-lock"></i> AES-256 Encryption</li>
+                            <li><i class="fa-solid fa-globe"></i> 6,000+ Global Servers</li>
+                            <li><i class="fa-solid fa-user-secret"></i> No-Logs Policy</li>
+                            <li><i class="fa-solid fa-wifi"></i> Threat Protection Pro</li>
+                        </ul>
+                        <a href="contact.html" class="cat-btn">Get License</a>
+                    </div>
+                </div>
+
+                <!-- Item 8: McAfee Total Protection -->
+                <div class="cat-card reveal">
+                    <div class="cat-img">
+                        <div class="cat-badge">All-in-One Security</div>
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600&auto=format&fit=crop"
+                            alt="McAfee Total Protection">
+                    </div>
+                    <div class="cat-info">
+                        <h3 class="cat-title">McAfee Total Protection</h3>
+                        <div class="cat-price">$59.99 <small>/ year</small></div>
+                        <ul class="cat-specs">
+                            <li><i class="fa-solid fa-shield-virus"></i> Antivirus & Identity Protection</li>
+                            <li><i class="fa-solid fa-wifi"></i> Secure VPN Included</li>
+                            <li><i class="fa-solid fa-key"></i> Password Manager</li>
+                            <li><i class="fa-solid fa-mobile-screen"></i> Unlimited Device Support</li>
+                        </ul>
+                        <a href="contact.html" class="cat-btn">Get License</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2>Need Enterprise Security?</h2>
+                <p>We provide custom firewall configurations, endpoint management, and corporate volume licensing for
+                    businesses.</p>
+                <a href="contact.html" class="primary-btn">Talk to a Security Expert</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+     <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-top">
+
+                <!-- Company -->
+
+                <div class="footer-col">
+
+                    <a href="index.html" class="logo">
+
+                        <div class="logo-icon">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+
+                        <div class="logo-text">
+                            Dev<span>Tek</span>
+                        </div>
+
+                    </a>
+
+                    <p>
+
+                        We help businesses grow through SEO,
+                        Google Ads, Social Media Marketing,
+                        Branding and Website Development.
+
+                    </p>
+
+                    <div class="social-links">
+
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+
+                    </div>
+
+                </div>
+
+                <!-- Quick Links -->
+
+                <div class="footer-col">
+
+                    <h3>Quick Links</h3>
+
+                    <ul>
+
+                        <li><a href="index.html">Home</a></li>
+
+                        <li><a href="about.html">About</a></li>
+
+                        <li><a href="services.html">Services</a></li>
+
+                        <li><a href="index.html#portfolio">Portfolio</a></li>
+
+                        <li><a href="contact.html">Contact</a></li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Services -->
+
+                <div class="footer-col">
+
+                    <h3>Services</h3>
+
+                    <ul>
+
+                        <li><a href="digital-marketing.html">Digital Marketing</a></li>
+
+                        <li><a href="web-design.html">Web Design</a></li>
+
+                        <li><a href="computer-repair.html">Computer Repair</a></li>
+
+                        <li><a href="printer-repair.html">Printer Repair</a></li>
+
+                        <li><a href="wifi-router.html">Wifi Router</a></li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Contact -->
+
+                <div class="footer-col">
+
+                    <h3>Contact</h3>
+
+                    <ul class="contact-info">
+
+                        <li>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            New York, USA
+
+                        </li>
+
+                        <li>
+
+                            <i class="fa-solid fa-phone"></i>
+
+                            +(321) 599-4515
+
+                        </li>
+
+                        <!-- <li>
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            hello@DevTek.com
+
+                        </li> -->
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p>
+
+                    © 2026 DevTek. All Rights Reserved.
+
+                </p>
+
+                <div>
+
+                    <a href="privacy-policy.html">Privacy Policy</a>
+
+                    <a href="terms-conditions.html">Terms & Conditions</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

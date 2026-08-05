@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptops & Notebooks - DevTech Products</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- UNIQUE LAYOUT CSS FOR INDIVIDUAL PRODUCT CATEGORIES -->
+    <style>
+        .cat-section {
+            padding: 80px 0;
+        }
+
+        .cat-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        .cat-header h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .cat-header p {
+            font-size: 16px;
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        /* Individual Product Grid & Cards */
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .cat-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cat-card:hover {
+            transform: translateY(-8px);
+            border-color: #00bfff;
+            box-shadow: 0 10px 25px rgba(0, 191, 255, 0.1);
+        }
+
+        .cat-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .cat-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s;
+        }
+
+        .cat-card:hover .cat-img img {
+            transform: scale(1.1);
+        }
+
+        .cat-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(0, 191, 255, 0.9);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            z-index: 2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cat-info {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cat-title {
+            font-size: 20px;
+            margin: 0 0 5px 0;
+            color: #fff;
+            line-height: 1.3;
+        }
+
+        .cat-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #00bfff;
+            margin-bottom: 20px;
+        }
+
+        .cat-specs {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 25px 0;
+            flex-grow: 1;
+        }
+
+        .cat-specs li {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cat-specs li i {
+            color: #00bfff;
+            font-size: 12px;
+            width: 16px;
+            text-align: center;
+        }
+
+        .cat-btn {
+            text-align: center;
+            padding: 12px;
+            background: rgba(0, 191, 255, 0.05);
+            border: 1px solid #00bfff;
+            color: #00bfff;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+
+        .cat-card:hover .cat-btn {
+            background: #00bfff;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+   <header>
+
+        <div class="container">
+
+            <nav>
+
+                <a href="index.html" class="logo">
+
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+
+                    <div class="logo-text">
+                        Dev<span>Tek</span>
+                    </div>
+
+                </a>
+
+                <ul>
+
+                    <!-- <li><a href="index.html">Home</a></li> -->
+
+                    <li><a href="about.html">About</a></li>
+
+                    <li><a href="products.html">Our Products</a></li>
+
+
+                    <li class="nav-dropdown">
+                        <a href="services.html">
+                            Services <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="digital-marketing.html">Digital Marketing</a></li>
+                            <li><a href="web-design.html">Web Design</a></li>
+                            <li><a href="mobile-app-development.html">Mobile App Development</a></li>
+                            <li><a href="cloud-hosting-solutions.html">Cloud & Hosting</a></li>
+
+                            <!-- New Pages -->
+                            <li><a href="computer-repair.html">Computer Repair</a></li>
+                            <li><a href="printer-repair.html">Printer Repair</a></li>
+                            <li><a href="laptop-repair.html">Laptop Reapir</a></li>
+                            <li><a href="wifi-router.html">WiFi Router</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="testimonials.html">Testimonials</a></li>
+
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+
+                <div class="nav-btn">
+                    <div class="bbb_logo">
+                        <img src="/assets/bbb_logo.png" alt="">
+                    </div>
+
+                    <a href="#" class="btn">
+                        Get Started
+                    </a>
+
+                </div>
+
+                <div class="hamburger">
+
+                    <span></span>
+
+                    <span></span>
+
+                    <span></span>
+
+                </div>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="service-detail-hero"
+        style="background-image: url('https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1600&auto=format&fit=crop'); background-size: cover; background-position: center; position: relative;">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="service-detail-hero-content">
+                <h1>Laptops & Notebooks</h1>
+                <p>High-Performance MacBooks, Ultrabooks, and Gaming Laptops</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT LISTING SECTION -->
+    <section class="cat-section">
+        <div class="container">
+            <div class="cat-header reveal">
+                <span
+                    style="color: #00bfff; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; display: block;">Our
+                    Catalog</span>
+                <h2>Find Your Perfect Laptop</h2>
+                <p>Browse our curated selection of premium laptops. Whether you need an ultra-portable device for
+                    travel, a robust machine for software development, or a high-refresh-rate gaming laptop, we have it
+                    all.</p>
+            </div>
+
+            <div class="cat-grid">
+
+                <!-- Item 1: Apple MacBook Pro -->
+                <div class="cat-card reveal">
+                    <div class="cat-img">
+                        <div class="cat-badge">Creative Pro</div>
+                        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=600&auto=format&fit=crop"
+                            alt="Apple MacBook Pro 16">
+                    </div>
+                    <div class="cat-info">
+                        <h3 class="cat-title">Apple MacBook Pro 16"</h3>
+                        <div class="cat-price">$2,499</div>
+                        <ul class="cat-specs">
+                            <li><i class="fa-solid fa-microchip"></i> Apple M3 Pro Chip</li>
+                            <li><i class="fa-solid fa-memory"></i> 18GB Unified Memory</li>
+                            <li><i class="fa-solid fa-hard-drive"></i> 512GB SSD Storage</li>
+                            <li><i class="fa-solid fa-display"></i> 16.2" Liquid Retina XDR</li>
+                        </ul>
+                        <a href="contact.html" class="cat-btn">Inquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Item 2: Dell XPS 15 -->
+                <div class="cat-card reveal">
+                    <div class="cat-img">
+                        <div class="cat-badge">Business Elite</div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC8IwIYdkw_R0QxP9don-RhQ369GXqPDTslbA7oJ8OUA&s=10"
+                            alt="Dell XPS 15">
+                    </div>
+                    <div class="cat-info">
+                        <h3 class="cat-title">Dell XPS 15 (2025)</h3>
+                        <div class="cat-price">$1,699</div>
+                        <ul class="cat-specs">
+                            <li><i class="fa-solid fa-microchip"></i> Intel Core i7-13700H</li>
+                            <li><i class="fa-solid fa-memory"></i> 16GB DDR5 RAM</li>
+                            <li><i class="fa-solid fa-hard-drive"></i> 1TB PCIe NVMe SSD</li>
+                            <li><i class="fa-solid fa-display"></i> 15.6" OLED Touch Display</li>
+                        </ul>
+                        <a href="contact.html" class="cat-btn">Inquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Item 3: ASUS ROG Gaming -->
+                <div class="cat-card reveal">
+                    <div class="cat-img">
+                        <div class="cat-badge">Gaming</div>
+                        <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?q=80&w=600&auto=format&fit=crop"
+                            alt="ASUS ROG Zephyrus">
+                    </div>
+                    <div class="cat-info">
+                        <h3 class="cat-title">ASUS ROG Zephyrus G14</h3>
+                        <div class="cat-price">$1,449</div>
+                        <ul class="cat-specs">
+                            <li><i class="fa-solid fa-microchip"></i> AMD Ryzen 9 7940HS</li>
+                            <li><i class="fa-solid fa-memory"></i> 16GB DDR5 Memory</li>
+                            <li><i class="fa-solid fa-hard-drive"></i> 1TB Gen4 NVMe SSD</li>
+                            <li><i class="fa-solid fa-gamepad"></i> NVIDIA RTX 4060 8GB</li>
+                        </ul>
+                        <a href="contact.html" class="cat-btn">Inquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Item 4: Lenovo ThinkPad -->
+                <div class="cat-card reveal">
+                    <div class="cat-img">
+                        <div class="cat-badge">Everyday / Student</div>
+                        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?q=80&w=600&auto=format&fit=crop"
+                            alt="Lenovo ThinkPad">
+                    </div>
+                    <div class="cat-info">
+                        <h3 class="cat-title">Lenovo ThinkPad E14</h3>
+                        <div class="cat-price">$749</div>
+                        <ul class="cat-specs">
+                            <li><i class="fa-solid fa-microchip"></i> Intel Core i5-1335U</li>
+                            <li><i class="fa-solid fa-memory"></i> 8GB DDR4 RAM</li>
+                            <li><i class="fa-solid fa-hard-drive"></i> 256GB SSD Storage</li>
+                            <li><i class="fa-solid fa-battery-full"></i> Up to 14 Hours Battery</li>
+                        </ul>
+                        <a href="contact.html" class="cat-btn">Inquire Now</a>
+                    </div>
+                </div>
+                <!-- Item 5: HP Spectre x360 -->
+                <div class="cat-card reveal">
+                    <div class="cat-img">
+                        <div class="cat-badge">2-in-1 Premium</div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgqeJBFzcCUZ9X9aa8ap7JoY1pBkvtWAaIvCj-GbLd2w&s=10"
+                            alt="HP Spectre x360">
+                    </div>
+                    <div class="cat-info">
+                        <h3 class="cat-title">HP Spectre x360 14</h3>
+                        <div class="cat-price">$1,499</div>
+                        <ul class="cat-specs">
+                            <li><i class="fa-solid fa-microchip"></i> Intel Core Ultra 7</li>
+                            <li><i class="fa-solid fa-memory"></i> 16GB LPDDR5X</li>
+                            <li><i class="fa-solid fa-hard-drive"></i> 1TB PCIe SSD</li>
+                            <li><i class="fa-solid fa-display"></i> 14" OLED Touch Display</li>
+                        </ul>
+                        <a href="contact.html" class="cat-btn">Inquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Item 6: Acer Swift Go -->
+                <div class="cat-card reveal">
+                    <div class="cat-img">
+                        <div class="cat-badge">Productivity</div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk2Fszq6clIEfLEZaxItY_P9TtStX1cyfrtxzz1kKQHg&s=10"
+                            alt="Acer Swift Go">
+                    </div>
+                    <div class="cat-info">
+                        <h3 class="cat-title">Acer Swift Go 14</h3>
+                        <div class="cat-price">$899</div>
+                        <ul class="cat-specs">
+                            <li><i class="fa-solid fa-microchip"></i> Intel Core Ultra 5</li>
+                            <li><i class="fa-solid fa-memory"></i> 16GB LPDDR5</li>
+                            <li><i class="fa-solid fa-hard-drive"></i> 512GB SSD</li>
+                            <li><i class="fa-solid fa-battery-full"></i> Up to 12 Hours Battery</li>
+                        </ul>
+                        <a href="contact.html" class="cat-btn">Inquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Item 7: Microsoft Surface Laptop -->
+                <div class="cat-card reveal">
+                    <div class="cat-img">
+                        <div class="cat-badge">Ultra Portable</div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSljd3waZeE_fmi7uMnrjtsfizzQ7eQTQPkSz8B2hcGmA&s=10"
+                            alt="Microsoft Surface Laptop">
+                    </div>
+                    <div class="cat-info">
+                        <h3 class="cat-title">Microsoft Surface Laptop 7</h3>
+                        <div class="cat-price">$1,299</div>
+                        <ul class="cat-specs">
+                            <li><i class="fa-solid fa-microchip"></i> Snapdragon X Elite</li>
+                            <li><i class="fa-solid fa-memory"></i> 16GB LPDDR5X</li>
+                            <li><i class="fa-solid fa-hard-drive"></i> 512GB SSD</li>
+                            <li><i class="fa-solid fa-display"></i> 13.8" PixelSense Display</li>
+                        </ul>
+                        <a href="contact.html" class="cat-btn">Inquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Item 8: MSI Stealth -->
+                <div class="cat-card reveal">
+                    <div class="cat-img">
+                        <div class="cat-badge">Gaming</div>
+                        <img src="https://images.unsplash.com/photo-1504707748692-419802cf939d?q=80&w=600&auto=format&fit=crop"
+                            alt="MSI Stealth">
+                    </div>
+                    <div class="cat-info">
+                        <h3 class="cat-title">MSI Stealth 16 Studio</h3>
+                        <div class="cat-price">$2,099</div>
+                        <ul class="cat-specs">
+                            <li><i class="fa-solid fa-microchip"></i> Intel Core i9-14900HX</li>
+                            <li><i class="fa-solid fa-memory"></i> 32GB DDR5 RAM</li>
+                            <li><i class="fa-solid fa-hard-drive"></i> 1TB Gen4 SSD</li>
+                            <li><i class="fa-solid fa-gamepad"></i> NVIDIA RTX 4070</li>
+                        </ul>
+                        <a href="contact.html" class="cat-btn">Inquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Item 9: Samsung Galaxy Book -->
+                <div class="cat-card reveal">
+                    <div class="cat-img">
+                        <div class="cat-badge">Slim & Light</div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_dkuu6Hj-fKJYdd2lzBJsyHyZxakE8UwpjYjyllL9aQ&s=10"
+                            alt="Samsung Galaxy Book">
+                    </div>
+                    <div class="cat-info">
+                        <h3 class="cat-title">Samsung Galaxy Book4 Pro</h3>
+                        <div class="cat-price">$1,399</div>
+                        <ul class="cat-specs">
+                            <li><i class="fa-solid fa-microchip"></i> Intel Core Ultra 7</li>
+                            <li><i class="fa-solid fa-memory"></i> 16GB LPDDR5X</li>
+                            <li><i class="fa-solid fa-hard-drive"></i> 1TB SSD</li>
+                            <li><i class="fa-solid fa-display"></i> 16" AMOLED Display</li>
+                        </ul>
+                        <a href="contact.html" class="cat-btn">Inquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Item 10: LG Gram -->
+                <div class="cat-card reveal">
+                    <div class="cat-img">
+                        <div class="cat-badge">Ultra Lightweight</div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVryAn5GVTfDRvhdBYpjoV9hrPv7Wytil2xcgukvEewg&s=10"
+                            alt="LG Gram">
+                    </div>
+                    <div class="cat-info">
+                        <h3 class="cat-title">LG Gram 16</h3>
+                        <div class="cat-price">$1,599</div>
+                        <ul class="cat-specs">
+                            <li><i class="fa-solid fa-microchip"></i> Intel Core Ultra 7</li>
+                            <li><i class="fa-solid fa-memory"></i> 32GB LPDDR5X</li>
+                            <li><i class="fa-solid fa-hard-drive"></i> 1TB SSD</li>
+                            <li><i class="fa-solid fa-battery-full"></i> Up to 18 Hours Battery</li>
+                        </ul>
+                        <a href="contact.html" class="cat-btn">Inquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Item 11: ASUS Zenbook -->
+                <div class="cat-card reveal">
+                    <div class="cat-img">
+                        <div class="cat-badge">Premium Ultrabook</div>
+                        <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?q=80&w=600&auto=format&fit=crop"
+                            alt="ASUS Zenbook">
+                    </div>
+                    <div class="cat-info">
+                        <h3 class="cat-title">ASUS Zenbook 14 OLED</h3>
+                        <div class="cat-price">$1,199</div>
+                        <ul class="cat-specs">
+                            <li><i class="fa-solid fa-microchip"></i> AMD Ryzen 7 8840HS</li>
+                            <li><i class="fa-solid fa-memory"></i> 16GB LPDDR5X</li>
+                            <li><i class="fa-solid fa-hard-drive"></i> 1TB PCIe SSD</li>
+                            <li><i class="fa-solid fa-display"></i> 14" 3K OLED Display</li>
+                        </ul>
+                        <a href="contact.html" class="cat-btn">Inquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Item 12: Razer Blade -->
+                <div class="cat-card reveal">
+                    <div class="cat-img">
+                        <div class="cat-badge">Gaming Pro</div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqQq-QmSotvMALLPZX60O_1j79LKgDgjIQzrTT-gAd2A&s=10"
+                            alt="Razer Blade">
+                    </div>
+                    <div class="cat-info">
+                        <h3 class="cat-title">Razer Blade 16</h3>
+                        <div class="cat-price">$2,999</div>
+                        <ul class="cat-specs">
+                            <li><i class="fa-solid fa-microchip"></i> Intel Core i9-14900HX</li>
+                            <li><i class="fa-solid fa-memory"></i> 32GB DDR5 RAM</li>
+                            <li><i class="fa-solid fa-hard-drive"></i> 2TB PCIe Gen4 SSD</li>
+                            <li><i class="fa-solid fa-gamepad"></i> NVIDIA RTX 4080</li>
+                        </ul>
+                        <a href="contact.html" class="cat-btn">Inquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2>Need a Specific Configuration?</h2>
+                <p>If you don't see what you're looking for, our team can source custom laptop configurations
+                    specifically for your business or personal use.</p>
+                <a href="contact.html" class="primary-btn">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+      <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-top">
+
+                <!-- Company -->
+
+                <div class="footer-col">
+
+                    <a href="index.html" class="logo">
+
+                        <div class="logo-icon">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+
+                        <div class="logo-text">
+                            Dev<span>Tek</span>
+                        </div>
+
+                    </a>
+
+                    <p>
+
+                        We help businesses grow through SEO,
+                        Google Ads, Social Media Marketing,
+                        Branding and Website Development.
+
+                    </p>
+
+                    <div class="social-links">
+
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+
+                    </div>
+
+                </div>
+
+                <!-- Quick Links -->
+
+                <div class="footer-col">
+
+                    <h3>Quick Links</h3>
+
+                    <ul>
+
+                        <li><a href="index.html">Home</a></li>
+
+                        <li><a href="about.html">About</a></li>
+
+                        <li><a href="services.html">Services</a></li>
+
+                        <li><a href="index.html#portfolio">Portfolio</a></li>
+
+                        <li><a href="contact.html">Contact</a></li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Services -->
+
+                <div class="footer-col">
+
+                    <h3>Services</h3>
+
+                    <ul>
+
+                        <li><a href="digital-marketing.html">Digital Marketing</a></li>
+
+                        <li><a href="web-design.html">Web Design</a></li>
+
+                        <li><a href="computer-repair.html">Computer Repair</a></li>
+
+                        <li><a href="printer-repair.html">Printer Repair</a></li>
+
+                        <li><a href="wifi-router.html">Wifi Router</a></li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Contact -->
+
+                <div class="footer-col">
+
+                    <h3>Contact</h3>
+
+                    <ul class="contact-info">
+
+                        <li>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            New York, USA
+
+                        </li>
+
+                        <li>
+
+                            <i class="fa-solid fa-phone"></i>
+
+                            +(321) 599-4515
+
+                        </li>
+
+                        <!-- <li>
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            hello@DevTek.com
+
+                        </li> -->
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p>
+
+                    © 2026 DevTek. All Rights Reserved.
+
+                </p>
+
+                <div>
+
+                    <a href="privacy-policy.html">Privacy Policy</a>
+
+                    <a href="terms-conditions.html">Terms & Conditions</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

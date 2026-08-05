@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiFi & Network Services - Professional Solutions</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- NEW PREMIUM LAYOUT CSS (Dark Theme Safe) -->
+    <style>
+        /* Stats Bar */
+        .nw-stats {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 60px 0 40px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 80px;
+        }
+
+        .nw-stat-item {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .nw-stat-item h3 {
+            font-size: 40px;
+            margin: 0;
+            color: #00bfff;
+        }
+
+        .nw-stat-item p {
+            margin: 5px 0 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        /* Zig-Zag Sections */
+        .nw-zigzag {
+            margin-bottom: 100px;
+        }
+
+        .nw-row {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .nw-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .nw-row-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .nw-row-content h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .nw-row-content p {
+            opacity: 0.8;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .nw-row-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nw-row-content li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.9;
+        }
+
+        .nw-row-content li i {
+            color: #00bfff;
+        }
+
+        .nw-row-img {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .nw-row-img img {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Glassmorphism Services Cards */
+        .nw-glass-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            margin-bottom: 80px;
+        }
+
+        .nw-glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 40px 30px;
+            border-radius: 16px;
+            transition: 0.3s;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .nw-glass-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: #00bfff;
+        }
+
+        .nw-glass-card i {
+            font-size: 36px;
+            color: #00bfff;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .nw-glass-card:hover i {
+            transform: scale(1.1);
+        }
+
+        .nw-glass-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .nw-glass-card p {
+            opacity: 0.7;
+            line-height: 1.6;
+            margin: 0 0 20px 0;
+        }
+
+        .nw-glass-card span {
+            color: #00bfff;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nw-glass-card span i {
+            font-size: 14px;
+            margin: 0;
+            color: #00bfff;
+        }
+
+        /* Big Banner CTA */
+        .nw-banner {
+            background: linear-gradient(135deg, rgba(0, 191, 255, 0.1), rgba(0, 85, 255, 0.2));
+            border: 1px solid rgba(0, 191, 255, 0.3);
+            border-radius: 16px;
+            padding: 60px 40px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .nw-banner h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .nw-banner p {
+            font-size: 18px;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        @media (max-width: 768px) {
+
+            .nw-row,
+            .nw-row.reverse {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+     <header>
+
+        <div class="container">
+
+            <nav>
+
+                <a href="index.html" class="logo">
+
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+
+                    <div class="logo-text">
+                        Dev<span>Tek</span>
+                    </div>
+
+                </a>
+
+                <ul>
+
+                    <!-- <li><a href="index.html">Home</a></li> -->
+
+                    <li><a href="about.html">About</a></li>
+
+                    <li><a href="products.html">Our Products</a></li>
+
+
+                    <li class="nav-dropdown">
+                        <a href="services.html">
+                            Services <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="digital-marketing.html">Digital Marketing</a></li>
+                            <li><a href="web-design.html">Web Design</a></li>
+                            <li><a href="mobile-app-development.html">Mobile App Development</a></li>
+                            <li><a href="cloud-hosting-solutions.html">Cloud & Hosting</a></li>
+
+                            <!-- New Pages -->
+                            <li><a href="computer-repair.html">Computer Repair</a></li>
+                            <li><a href="printer-repair.html">Printer Repair</a></li>
+                            <li><a href="laptop-repair.html">Laptop Reapir</a></li>
+                            <li><a href="wifi-router.html">WiFi Router</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="testimonials.html">Testimonials</a></li>
+
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+
+                <div class="nav-btn">
+                    <div class="bbb_logo">
+                        <img src="/assets/bbb_logo.png" alt="">
+                    </div>
+
+                    <a href="#" class="btn">
+                        Get Started
+                    </a>
+
+                </div>
+
+                <div class="hamburger">
+
+                    <span></span>
+
+                    <span></span>
+
+                    <span></span>
+
+                </div>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- ORIGINAL SERVICE HERO RESTORED -->
+    <section class="service-detail-hero">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="service-detail-hero-content">
+                <h1>WiFi & Network Services</h1>
+                <p>Complete Network Solutions for Your Home or Business</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW STATS BAR -->
+    <div class="container reveal">
+        <div class="nw-stats">
+            <div class="nw-stat-item">
+                <h3>99.9%</h3>
+                <p>Network Uptime</p>
+            </div>
+            <div class="nw-stat-item">
+                <h3>10GB/s</h3>
+                <p>Max Bandwidth Ready</p>
+            </div>
+            <div class="nw-stat-item">
+                <h3>500+</h3>
+                <p>Networks Optimized</p>
+            </div>
+            <div class="nw-stat-item">
+                <h3>24/7</h3>
+                <p>Security Monitoring</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW ZIG-ZAG CONTENT SECTIONS -->
+    <section class="nw-zigzag container">
+
+        <!-- Row 1 -->
+        <div class="nw-row reveal">
+            <div class="nw-row-img">
+                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800&auto=format&fit=crop"
+                    alt="Ethernet Cables">
+            </div>
+            <div class="nw-row-content">
+                <h2 style="color: #00bfff;">Enterprise-Grade Ethernet & Switching</h2>
+                <p>Stop relying purely on wireless for your most critical devices. We design and install structured
+                    cabling and network switches that deliver uncompromising speed directly to your workstations and
+                    servers.</p>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Cat6 & Cat6a high-speed cable runs</li>
+                    <li><i class="fa-solid fa-check"></i> Managed and Unmanaged Switch deployment</li>
+                    <li><i class="fa-solid fa-check"></i> Clean patch panel organization</li>
+                    <li><i class="fa-solid fa-check"></i> PoE (Power over Ethernet) configurations</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Row 2 (Reversed) -->
+        <div class="nw-row reverse reveal">
+            <div class="nw-row-img">
+                <img src="assets/wifi_router.jpeg" alt="WiFi Router Setup">
+            </div>
+            <div class="nw-row-content">
+                <h2 style="color: #00bfff;">Seamless Mesh WiFi Systems</h2>
+                <p>Dead zones and buffering are a thing of the past. We implement intelligent mesh WiFi networks that
+                    actively hand off your devices to the strongest access point as you move through your home or
+                    office.</p>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Total elimination of WiFi dead zones</li>
+                    <li><i class="fa-solid fa-check"></i> ISP Modem bridging and optimization</li>
+                    <li><i class="fa-solid fa-check"></i> Tri-band setup for heavy streaming & gaming</li>
+                    <li><i class="fa-solid fa-check"></i> Secure guest network partitioning</li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- NEW GLASSMORPHISM SERVICE CARDS -->
+    <section id="services" class="container">
+        <div style="text-align: center; margin-bottom: 40px;" class="reveal">
+            <h2 style="font-size: 36px; margin: 0;">Our WiFi & Network Services</h2>
+            <p style="opacity: 0.7; margin-top: 10px;">Hardware and software solutions tailored to your bandwidth needs.
+            </p>
+        </div>
+
+        <div class="nw-glass-grid">
+
+            <a href="wifi-routers.html" class="nw-glass-card reveal">
+                <i class="fas fa-wifi"></i>
+                <h3>WiFi Routers & Mesh</h3>
+                <p>Router installation, firmware optimization, and mesh network setups to ensure blazing-fast internet.
+                </p>
+                <span>Learn More <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a href="cable-running.html" class="nw-glass-card reveal">
+                <i class="fas fa-sitemap"></i>
+                <h3>In-Wall Cable Running</h3>
+                <p>Professional cable installation and routing. Hide messy wires and hardwire your devices safely.</p>
+                <span>Learn More <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a href="security-cameras.html" class="nw-glass-card reveal">
+                <i class="fas fa-video"></i>
+                <h3>Security Cameras</h3>
+                <p>Installation and secure network setup for modern surveillance systems for ultimate peace of mind.</p>
+                <span>Learn More <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a href="smart-locks.html" class="nw-glass-card reveal">
+                <i class="fas fa-lock"></i>
+                <h3>Smart Locks</h3>
+                <p>Upgrade your doors with smart locks connected directly to your secure home network for keyless entry.
+                </p>
+                <span>Learn More <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a href="alarm-systems.html" class="nw-glass-card reveal">
+                <i class="fas fa-shield-halved"></i>
+                <h3>Alarm Systems</h3>
+                <p>Complete alarm system installation, sensor pairing, and continuous network monitoring setup.</p>
+                <span>Learn More <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a href="contact.html" class="nw-glass-card reveal">
+                <i class="fas fa-server"></i>
+                <h3>Network Diagnostics</h3>
+                <p>Experiencing random drops? We run deep diagnostics to find and fix network bottlenecks instantly.</p>
+                <span>Get Diagnosed <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- NEW BANNER CTA -->
+    <div class="container reveal">
+        <div class="nw-banner">
+            <h2>Ready to Maximize Your Speed?</h2>
+            <p>Whether you need a simple router upgrade or a full office network overhaul, our certified technicians are
+                ready to deploy.</p>
+            <a href="contact.html" class="primary-btn" style="padding: 15px 40px; font-size: 18px;">Request a Network
+                Audit</a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-top">
+
+                <!-- Company -->
+
+                <div class="footer-col">
+
+                    <a href="index.html" class="logo">
+
+                        <div class="logo-icon">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+
+                        <div class="logo-text">
+                            Dev<span>Tek</span>
+                        </div>
+
+                    </a>
+
+                    <p>
+
+                        We help businesses grow through SEO,
+                        Google Ads, Social Media Marketing,
+                        Branding and Website Development.
+
+                    </p>
+
+                    <div class="social-links">
+
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+
+                    </div>
+
+                </div>
+
+                <!-- Quick Links -->
+
+                <div class="footer-col">
+
+                    <h3>Quick Links</h3>
+
+                    <ul>
+
+                        <li><a href="index.html">Home</a></li>
+
+                        <li><a href="about.html">About</a></li>
+
+                        <li><a href="services.html">Services</a></li>
+
+                        <li><a href="index.html#portfolio">Portfolio</a></li>
+
+                        <li><a href="contact.html">Contact</a></li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Services -->
+
+                <div class="footer-col">
+
+                    <h3>Services</h3>
+
+                    <ul>
+
+                        <li><a href="digital-marketing.html">Digital Marketing</a></li>
+
+                        <li><a href="web-design.html">Web Design</a></li>
+
+                        <li><a href="computer-repair.html">Computer Repair</a></li>
+
+                        <li><a href="printer-repair.html">Printer Repair</a></li>
+
+                        <li><a href="wifi-router.html">Wifi Router</a></li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Contact -->
+
+                <div class="footer-col">
+
+                    <h3>Contact</h3>
+
+                    <ul class="contact-info">
+
+                        <li>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            New York, USA
+
+                        </li>
+
+                        <li>
+
+                            <i class="fa-solid fa-phone"></i>
+
+                            +(321) 599-4515
+
+                        </li>
+
+                        <!-- <li>
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            hello@DevTek.com
+
+                        </li> -->
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p>
+
+                    © 2026 DevTek. All Rights Reserved.
+
+                </p>
+
+                <div>
+
+                    <a href="privacy-policy.html">Privacy Policy</a>
+
+                    <a href="terms-conditions.html">Terms & Conditions</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
